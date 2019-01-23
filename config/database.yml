@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Tclone_development
+
+
+test:
+  <<: *default
+  database: Tclone_test
+
+
+production:
+  <<: *default
+  database: Tclone_production
+  username: Tclone
+  password: <%= ENV['TCLONE_DATABASE_PASSWORD'] %>
