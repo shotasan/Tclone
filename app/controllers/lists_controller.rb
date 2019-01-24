@@ -7,6 +7,10 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
+  def new_redirect
+    @list = List.new(content: params[:content])
+  end
+
   def create
     List.create(list_params)
     redirect_to new_list_path
