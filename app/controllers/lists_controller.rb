@@ -16,6 +16,10 @@ class ListsController < ApplicationController
     @list = List.find_by(id: params[:id])
   end
 
+  def confirm
+    @list = List.new(list_params)
+  end
+
   private
 
   def list_params
