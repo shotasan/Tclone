@@ -2,5 +2,5 @@
 
 <p>内容：<%= @list.content %></p>
 
-<%= link_to '削除', "/lists/#{@list.id}",method: :delete %>
-<%= binding.pry %>
+<%= link_to '編集', edit_list_path %>
+<%= link_to '削除', list_path, method: :delete %>
