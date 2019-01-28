@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
+    @list = List.new
   end
 
   def new
@@ -31,7 +32,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find_by(id: params[:id])
     @list.destroy
-    redirect_to lists_path
+    redirect_to lists_path, notice:"削除しました。"
   end
 
   def edit

@@ -1,18 +1,35 @@
+<%= form_with(model: @list, url: confirm_lists_path, local: true) do |form| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @list.errors.count %>件のエラーがあります。</h2>
+      <ul>
 
-<h1>TOP<h1>
+      <% @list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<p><%= notice %></p>
+  <div class="content">
+    <%= form.label :"投稿" %>
+    <%= form.text_area :content, size: "100x10", placeholder: "140文字以内で入力してください" %>
+  </div>
+ 
+   <span class = "button"><%= form.submit name="投稿する" %></span>
+<% end %>
 
+<p class = "notice"><%= notice %></p>
+
+<div class="table_round">
 <table border=1>
   <tr>
-    <th>投稿内容</th>
+    <th>投稿一覧</th>
   </tr>
-
   <% @lists.each do |list| %>
   <tr>
     <td><%= link_to list.content,list_path(list.id) %></td>
   </tr>
   <% end %>
 </table>
-
-<%= link_to "投稿画面", new_list_path %>
+</div>
