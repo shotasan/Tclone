@@ -12,8 +12,12 @@ class ListsController < ApplicationController
   end
 
   def create
-    List.create(list_params)
-    redirect_to new_list_path
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to lists_path, notice:"投稿しました。"
+    else
+      render"new"
+    end
   end
 
   def show
@@ -36,8 +40,11 @@ class ListsController < ApplicationController
 
   def update
     @list = List.find(params[:id])
-    @list.update(list_params)
-    redirect_to lists_path
+    if @list.update(list_params)
+      redirect_to lists_path, notice:"編集しました。"
+    else
+      render "edit"
+    end
   end
 
   private

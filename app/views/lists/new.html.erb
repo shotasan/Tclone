@@ -1,4 +1,16 @@
 <%= form_with(model: @list, url: confirm_lists_path, local: true) do |form| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @list.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="content">
     <%= form.label :content %>
     <%= form.text_field :content %>
