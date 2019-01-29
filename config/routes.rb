@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'lists#index'
   resources :lists do
     collection do
       post :confirm
