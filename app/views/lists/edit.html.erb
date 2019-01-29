@@ -3,18 +3,18 @@
     <div id="error_explanation">
       <h2><%= @list.errors.count %>件のエラーがあります。</h2>
       <ul>
-
+      <br>
       <% @list.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
+  <br>
   <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :"内容" %>
+    <%= form.text_area :content, size: "100x10" %>
   </div>
-  <%= form.submit %>
-  <%= link_to '戻る', :back %>
+  <span  class= "btnlike"><%= form.submit name="保存する"%></span>
+  <%= link_to '戻る', :back, class: "btnlike" %>
 <% end %>

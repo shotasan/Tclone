@@ -1,9 +1,10 @@
 <h3>以下の内容で、送信する。</h3>
-
+<br>
 <%= form_with(model: @list, url: lists_path, local: true) do |form| %>
   <%= form.hidden_field :content %>
-
+  <br>
   <p><%= @list.content %></p>
-  <%= form.submit  "登録する" %>
-  <%= link_to "戻る", new_redirect_lists_path(content: @list.content) %>
+  <br>
+  <span  class= "btnlike"><%= form.submit  "登録する" %></span>
+  <%= link_to "戻る", new_redirect_lists_path(content: @list.content), class: "btnlike" %>
 <% end %>

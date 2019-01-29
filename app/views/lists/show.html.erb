@@ -1,7 +1,7 @@
 <h1>詳細画面 </h1>
-
+<br>
 <p>内容：<%= @list.content %></p>
-
-<%= link_to '編集', edit_list_path %>
-<%= link_to '削除', list_path, method: :delete %>
-<%= link_to '投稿一覧', lists_path %>
+<br>
+<%= link_to '編集', edit_list_path, class: "btnlike" %>
+<%= button_to '削除', list_path, method: :delete, class: "btnlike" %>
+<%= link_to '投稿一覧', lists_path, class: "btnlike" %>

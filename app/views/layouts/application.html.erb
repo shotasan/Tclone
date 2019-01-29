@@ -5,16 +5,18 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
+    <div class="container">
     <header class = "header">
-      <h1>TOP</h1>
+      <h1>Tclone</h1>
     </header>
     <%= yield %>
     <footer class = "footer">
-      <h1>end</h1>
+      <h1>Copyright © 2018 DIVE INC All RIGHTS RESERVED.</h1>
     </footer>
+    </div>
   </body>
 </html>

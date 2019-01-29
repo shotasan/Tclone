@@ -10,11 +10,13 @@
       </ul>
     </div>
   <% end %>
-
+  <br>
   <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :"内容" %>
+    <%= form.text_area :content, size: "100x10" %>
   </div>
-  <%= form.submit %>
+  <br>
+  <span class = "button"><%= form.submit name="投稿する" %></span>
 <% end %>
-<%= link_to "一覧画面", lists_path %>
+<br>
+<%= link_to "一覧に戻る", lists_path, class: "btnlike" %>

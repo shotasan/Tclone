@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  before_action :set_list, only: [:show,:destroy,:edit]
+  
   def index
     @lists = List.all
     @list = List.new
@@ -22,7 +24,6 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find_by(id: params[:id])
   end
 
   def confirm
@@ -30,13 +31,11 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find_by(id: params[:id])
     @list.destroy
     redirect_to lists_path, notice:"削除しました。"
   end
 
   def edit
-    @list = List.find_by(id: params[:id])
   end
 
   def update
@@ -52,5 +51,9 @@ class ListsController < ApplicationController
 
   def list_params
     params.require(:list).permit(:content)
+  end
+
+  def set_list
+    @list = List.find_by(id: params[:id])
   end
 end
