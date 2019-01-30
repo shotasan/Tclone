@@ -28,6 +28,7 @@ class ListsController < ApplicationController
 
   def confirm
     @list = List.new(list_params)
+    render"new" if @list.invalid?
   end
 
   def destroy
